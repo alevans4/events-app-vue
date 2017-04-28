@@ -12,7 +12,7 @@ new Vue({
   data: {
     event: { name: "", description: "", date: ""},
     events: []
-},
+  },
 
 // Anything within the ready function will run when the application loads
 
@@ -22,7 +22,7 @@ new Vue({
 // some data
 
     this.fetchEvents();
-},
+  },
 
 // Methods we want to use in our application are registered here
 
@@ -68,6 +68,13 @@ new Vue({
           this.event = { name: "", description: "", date: "" };
           }
         }
+
+      deleteEvent: function(index) {
+        if(confirm("Are you sure you want to delete this event?")) {
+          //$remove is a Vue convenience method similar to splice
+          this.events.$remove(index);
+        }
       }
+    }
 
 });
